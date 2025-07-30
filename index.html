@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FacTEHR Paper</title>
+    <title>FactEHR</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -50,6 +50,14 @@
             margin-bottom: 1rem;
             color: #2c3e50;
         }
+        .figure {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .figure img {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
         .button {
             display: inline-block;
             padding: 0.8rem 1.5rem;
@@ -61,6 +69,18 @@
             margin-bottom: 1rem;
             transition: background-color 0.3s;
         }
+        .citation-box {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            /* Add these new properties */
+            max-width: 100%;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
         .button:hover {
             background-color: #0056b3;
         }
@@ -69,47 +89,59 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="title">FacTEHR: Your Paper Title Here</div>
+            <div class="title">FactEHR: A Dataset for Evaluating Factuality in Clinical Notes Using LLMs</div>
             <div class="authors">
-                Author 1, Author 2, Author 3
+                Monica Munnangi*, Akshay Swaminathan*, Jason Alan Fries*, Jenelle Jindal, Sanjana Narayanan, Ivan Lopez,
+Lucia Tu, Philip Chung, Jesutofunmi A. Omiye, Mehr Kashyap, Nigam Shah
             </div>
             <div class="affiliation">
-                Your Institution Name
+                Northeastern University, Stanford School of Medicine
             </div>
             <div>
-                <a href="#" class="button">Paper</a>
-                <a href="#" class="button">Code</a>
-                <a href="#" class="button">Dataset</a>
+                <a href="https://arxiv.org/pdf/2412.12422" class="button">Paper</a>
+                <a href="https://github.com/som-shahlab/factehr" class="button">Code</a>
+                <a href="https://stanford.redivis.com/datasets/bckk-15p0mwmz7" class="button">Dataset</a>
             </div>
         </div>
 
         <div class="abstract">
             <div class="section-title">Abstract</div>
             <p>
-                Your abstract text goes here. Provide a brief overview of your research,
-                methodology, and key findings.
+                Verifying and attributing factual claims is essential for the safe and effective use of large language models (LLMs) in healthcare.
+A core component of factuality evaluation is fact decomposition, the process of breaking down complex clinical statements into fine-grained atomic facts for verification.
+Recent work has proposed fact decomposition, which uses LLMs to rewrite source text into concise sentences conveying a single piece of information, to facilitate fine-grained fact verification.
+However, clinical documentation poses unique challenges for fact decomposition due to dense terminology and diverse note types and remains understudied.
+To address this gap and explore these challenges, we present FactEHR, an NLI dataset consisting of document fact decompositions for 2,168 clinical notes spanning four types from three hospital systems, resulting in 987,266 entailment pairs.
+We assess the generated facts on different axes, from entailment evaluation of LLMs to a qualitative analysis.
+Our evaluation, including review by the clinicians, reveals substantial variability in LLM performance for fact decomposition.
+For example, Gemini-1.5-Flash consistently generates relevant and accurate facts, while Llama-3 8B produces fewer and less consistent outputs.
+The results underscore the need for better LLM capabilities to support factual verification in clinical text.
             </p>
         </div>
 
-        <div class="section">
-            <div class="section-title">Overview</div>
-            <p>
-                Detailed description of your research work goes here. You can include images,
-                diagrams, or any other relevant content to explain your work.
-            </p>
+        <div class="figure">
+            <div class="section-title">Dataset Generation</div>
+            <img src="pipeline.png" alt="Pipeline Overview" style="max-width: 100%; height: auto; margin: 2rem 0;">
+        </div>
+
         </div>
 
         <div class="section">
+            <div class="container" style="max-width: 1000px; margin: 0 auto;">
             <div class="section-title">Citation</div>
-            <pre style="background-color: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto;">
-@inproceedings{yourpaper2024factehr,
-    title={FacTEHR: Your Paper Title},
-    author={Author1 and Author2 and Author3},
-    booktitle={Conference Name},
-    year={2024}
-}
-            </pre>
-        </div>
+
+                <pre class="citation-box">@article{munnangi2024factehr,
+          title     = {Assessing the Limitations of Large Language Models in Clinical Fact Decomposition},
+          author    = {Monica Munnangi and Akshay Swaminathan and Jason Alan Fries and Jenelle Jindal and Sanjana Narayanan and Ivan Lopez and Lucia Tu and Philip Chung and Jesutofunmi A. Omiye and Mehr Kashyap and Nigam Shah},
+          journal   = {arXiv preprint arXiv:2412.12422},
+          year      = {2024},
+          eprint    = {2412.12422},
+          archivePrefix = {arXiv},
+          primaryClass  = {cs.CL},
+          note      = {v1, 17 Dec 2024}
+        }</pre>
     </div>
+</div>
+
 </body>
 </html>
